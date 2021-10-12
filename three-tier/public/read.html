@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Contacts:<br>
+    <button onclick="readContacts()">Read All</button> 
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/superagent"></script>
+<script>
+function readContacts(){
+    var url = '/read';
+ 
+    superagent
+        .get(url)
+        .end(function(err, res){
+            if (err) {
+                console.log('err:',err);
+            } else {
+                console.log('response:',res.text);
+            }
+        });
+ }
+     </script>
+</html>
